@@ -1,0 +1,73 @@
+## wm-independent hotkeys
+
+# reload sxhkd
+super + Escape
+  pkill -USR1 -x sxhkd
+
+# launch dmenu
+super + d
+  dmenu_run -b
+
+# launch a term
+super + Return
+  urxvt
+
+# launch a browser
+super + shift + f
+  firefox
+
+# lock screen
+super + shift + x
+  lock.sh
+
+# exit X session
+super + alt + Escape
+  pkill xwait
+
+# close window
+super + w
+  killwa $(pfw)
+
+# fullscreens window
+super + f
+  fullscreen.sh $(pfw)
+
+# focus window
+alt + {h,j,k,l}
+  focusw $(closestw {h, j, k, l})
+
+# focus next window
+alt + Tab
+  focus.sh next
+
+# move window
+super + {h,j,k,l}
+  wmv {-30 0, 0 30, 0 -30, 30 0} $(pfw)
+
+# resize window
+super + alt + {h,j,k,l}
+  wrs {-20 0, 0 20, 0 -20, 20 0} $(pfw)
+
+# toggle group
+super + {1,2,3,4,5,6}
+  groaw -t {1,2,3,4,5,6}
+
+# add to group
+super + shift + {1,2,3,4,5,6}
+  groaw -a {1,2,3,4,5,6}
+
+super + ctrl + {1,2,3,4,5,6}
+  groaw -d {1,2,3,4,5,6}
+
+# remove from group
+super + alt + {1,2,3,4,5,6}
+  groaw -d {1,2,3,4,5,6}
+
+# remove from all groups
+super + alt + shift + Return
+  groaw -d all
+
+# tile windows
+super + t
+  tilew
+
